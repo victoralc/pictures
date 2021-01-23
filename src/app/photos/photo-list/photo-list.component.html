@@ -1,9 +1,4 @@
-<div class="text-center mt-3 mb-3">
-    <form action="">
-        <input type="search" class="rounded" placeholder="Search" 
-            autofocus (keyup)="filter = $event.target.value">
-    </form>
-</div>
+<app-search (onTyping)="filter = $event" [value]="filter"></app-search>
 
 <app-photos [photos]="photos | filterByDescription: filter"></app-photos>
 
