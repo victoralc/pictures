@@ -7,6 +7,10 @@ import { SignInComponent } from './signin/signin.component';
 
 @NgModule({
     declarations: [SignInComponent],
-    imports: [ReactiveFormsModule, CommonModule, ValidationMessageModule, RouterModule]
+    imports: [
+        ReactiveFormsModule, 
+        CommonModule,
+        ValidationMessageModule, 
+        RouterModule]
 })
 export class HomeModule {}
