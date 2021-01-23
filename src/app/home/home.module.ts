@@ -10,6 +10,7 @@ import { SignInComponent } from './signin/signin.component';
     imports: [
         ReactiveFormsModule, 
         CommonModule,
-        ValidationMessageModule, RouterModule]
+        ValidationMessageModule, 
+        RouterModule]
 })
 export class HomeModule {}
