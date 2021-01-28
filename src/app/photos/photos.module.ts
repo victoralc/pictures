@@ -13,12 +13,13 @@ import { SearchComponent } from './photo-list/search/search.component';
 import { DarkenOnHoverModule } from '../shared/directives/darken-on-hover.module';
 import { SearchModule } from './photo-list/search/search.module';
 import { HomeModule } from '../home/home.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PhotoFormModule } from './photo-form/photo.form.module';
+import { PhotoModule } from './photo/photo.module';
 
 @NgModule({
-    declarations: [
-        PhotoComponent, 
+    declarations: [ 
         PhotoListComponent, 
-        PhotoFormComponent, 
         PhotosComponent, 
         FilterByDescription, 
         LoadButtonComponent
@@ -27,10 +28,11 @@ import { HomeModule } from '../home/home.module';
         HttpClientModule, 
         CommonModule,
         CardModule,
+        PhotoModule,
+        PhotoFormModule,
         DarkenOnHoverModule,
         SearchModule,
         HomeModule
-    ],
-    exports: [PhotoComponent]
+    ]
 })
 export class PhotosModule{}
