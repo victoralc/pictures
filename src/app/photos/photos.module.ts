@@ -16,20 +16,18 @@ import { HomeModule } from '../home/home.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PhotoFormModule } from './photo-form/photo.form.module';
 import { PhotoModule } from './photo/photo.module';
+import { PhotoDetailsModule } from './photo-details/photo.details.module';
+import { PhotoListModule } from './photo-list/photo.list.module';
 
 @NgModule({
-    declarations: [ 
-        PhotoListComponent, 
-        PhotosComponent, 
-        FilterByDescription, 
-        LoadButtonComponent
-    ],
     imports: [
         HttpClientModule, 
         CommonModule,
         CardModule,
         PhotoModule,
+        PhotoDetailsModule,
         PhotoFormModule,
+        PhotoListModule,
         DarkenOnHoverModule,
         SearchModule,
         HomeModule
