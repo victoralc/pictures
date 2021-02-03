@@ -10,6 +10,7 @@
             <p class="text-left break-word">{{ photo.description }}</p>
             <div class="d-flex justify-content-between mb-4" style="font-size: 24px;">
               <div>
+                <fa-icon (click)="like(photo)" showIfLogged [icon]="faHeart"> </fa-icon> {{ photo.likes }}
                 <fa-icon [icon]="faComment"></fa-icon> {{ photo.comments }}
               </div>
               <fa-icon photoOwnerOnly [photo]="photo" [icon]="faTrash" (click)="removePhoto()" ></fa-icon>

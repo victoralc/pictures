@@ -5,7 +5,7 @@ import { Photo } from '../photo/photo';
 import { PhotoComment } from '../photo/photo.comment';
 import { PhotoService } from '../photo/photo.service';
 
-import { faAmbulance, faComment, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faComment, faHeart, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { AlertService } from 'src/app/shared/components/alert/alert.service';
 
 @Component({ 
@@ -19,7 +19,8 @@ export class PhotoDetailsComponent implements OnInit {
     photoId: number;
 
     faComment = faComment;
-    faTrash = faTrash;
+    faTrash = faTrashAlt;
+    faHeart = faHeart;
 
     constructor(
         private route: ActivatedRoute,
@@ -45,6 +46,16 @@ export class PhotoDetailsComponent implements OnInit {
             err => {
                 console.log(err);
                 this.alertService.warning('Could not delete photo.', true);
+            });
+    }
+
+    like(photo: Photo){
+        this.photoService
+            .like(photo.id)
+            .subscribe(liked => {
+                if (liked) {
+                    this.photo$ = this.photoService.findById(photo.id)
+                }    
             });
     }
 
