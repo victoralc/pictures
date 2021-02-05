@@ -22,10 +22,16 @@ const routes: Routes = [
         {
             path: '',
             component: SignInComponent,
+            data: {
+              title: 'Sign in'
+            }
         },
         {
             path: 'signup',
             component: SignUpComponent,
+            data: {
+              title: 'Sign up'
+            }
         },
     ]
   },
@@ -37,12 +43,18 @@ const routes: Routes = [
     component: PhotoListComponent , 
     resolve: {
       photos: PhotoListResolver
+    },
+    data: {
+      title:  'Timeline'
     }
   },
   { 
     path: 'photos/add', 
     component: PhotoFormComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: {
+      title: 'Photo upload'
+    }
   },
   { 
     path: 'photos/:photoId', 
