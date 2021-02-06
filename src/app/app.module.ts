@@ -20,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     PhotosModule,
     ErrorsModule,
-    CoreModule
+    CoreModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
