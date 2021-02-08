@@ -7,6 +7,7 @@ import { PhotoService } from '../photo/photo.service';
 
 import { faComment, faHeart, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { AlertService } from 'src/app/shared/components/alert/alert.service';
+import { UserService } from 'src/app/core/user/user.service';
 
 @Component({ 
     selector: 'app-photo-details',
@@ -26,7 +27,8 @@ export class PhotoDetailsComponent implements OnInit {
         private route: ActivatedRoute,
         private photoService: PhotoService,
         private router: Router, 
-        private alertService: AlertService){ }
+        private alertService: AlertService,
+        private userService: UserService){ }
 
     ngOnInit(){
         this.photoId = this.route.snapshot.params.photoId;
@@ -41,7 +43,9 @@ export class PhotoDetailsComponent implements OnInit {
         this.photoService.removePhoto(this.photoId)
             .subscribe(() => {
                 this.alertService.success("Photo removed.", true)
-                this.router.navigate(['']);                             
+                this.router.navigate(['/user', this.userService.getUserName()], {
+                    replaceUrl: true
+                });                             
             },
             err => {
                 console.log(err);
