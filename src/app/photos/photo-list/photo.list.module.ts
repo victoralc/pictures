@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CardModule } from 'src/app/shared/components/card/card.module';
 import { DarkenOnHoverModule } from 'src/app/shared/directives/darken-on-hover.module';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 import { PhotoModule } from '../photo/photo.module';
 import { FilterByDescription } from './filter-by-description.pipe';
 import { LoadButtonComponent } from './load-button/load-button.component';
@@ -24,7 +25,8 @@ import { SearchModule } from './search/search.module';
         CardModule, 
         DarkenOnHoverModule,
         SearchModule,
-        RouterModule
+        RouterModule,
+        MaterialModule
     ]
 })
 export class PhotoListModule {

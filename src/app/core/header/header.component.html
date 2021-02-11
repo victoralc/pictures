@@ -1,34 +1,23 @@
-<header class="fixed-top">
-    <nav class="navbar navbar-toggler bg-dark">
-        <a class="navbar-brand ml-7">
-            <fa-icon [icon]="faBars" 
-                tabindex="0" 
-                (keyup.space)="menu.toggle()" 
-                (click)="menu.toggle()" class="ml-2"></fa-icon>
-            Pictures
-        </a>
-        <app-menu #menu>
-            <ul class="list-unstyled">
-                <li>
-                    <a showIfLogged [routerLink]="['p', 'add']">Upload</a>
-                </li>
-            </ul>
-        </app-menu>
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Pictures</span>
+    <span class="example-spacer"></span>
 
-        <div *ngIf="(user$ | async) as user; else login">
-            <i class="fas fa-user-circle mr-1"></i>
-            <a class="mr-1"> {{ user.name }} </a>
-            <a class="ml-2 mr-3" (click)="logout()"> Logout </a>
-        </div>
-
-        <ng-template #login>
-            <span class="navbar-text">
-                <a [routerLink]="['']" >Login</a>
-            </span>        
-        </ng-template>
-    </nav>
-    <div class="fixed-top">
-        <app-loading></app-loading>
-        <app-alert></app-alert>
+    <div *ngIf="(user$ | async) as user; else login">
+        <mat-icon>face</mat-icon>
+        <a> {{ user.name }} </a>
+        <a (click)="logout()"> Logout </a>
     </div>
-</header>
+
+    <ng-template #login>
+        <span class="navbar-text mr1">
+            <a [routerLink]="['']">Login</a>
+        </span>        
+    </ng-template>
+</mat-toolbar>
+<div>
+    <app-loading></app-loading>
+    <app-alert></app-alert>
+</div>

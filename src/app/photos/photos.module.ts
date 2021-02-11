@@ -18,6 +18,7 @@ import { PhotoFormModule } from './photo-form/photo.form.module';
 import { PhotoModule } from './photo/photo.module';
 import { PhotoDetailsModule } from './photo-details/photo.details.module';
 import { PhotoListModule } from './photo-list/photo.list.module';
+import { MaterialModule } from '../shared/material/material.module';
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import { PhotoListModule } from './photo-list/photo.list.module';
         PhotoListModule,
         DarkenOnHoverModule,
         SearchModule,
-        HomeModule
+        HomeModule,
+        MaterialModule
     ]
 })
 export class PhotosModule{}

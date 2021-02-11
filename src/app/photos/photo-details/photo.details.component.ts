@@ -5,7 +5,6 @@ import { Photo } from '../photo/photo';
 import { PhotoComment } from '../photo/photo.comment';
 import { PhotoService } from '../photo/photo.service';
 
-import { faComment, faHeart, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { AlertService } from 'src/app/shared/components/alert/alert.service';
 import { UserService } from 'src/app/core/user/user.service';
 
@@ -18,10 +17,6 @@ export class PhotoDetailsComponent implements OnInit {
 
     photo$: Observable<Photo>;
     photoId: number;
-
-    faComment = faComment;
-    faTrash = faTrashAlt;
-    faHeart = faHeart;
 
     constructor(
         private route: ActivatedRoute,

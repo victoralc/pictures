@@ -4,19 +4,17 @@
 <ol class="list-unstyled">
     <li *ngFor="let cols of rows" class="row no-gutters">
         <dvi *ngFor="let photo of cols" class="col-4">
-            <a [routerLink]="['/photos', photo.id]">
-                <app-card>
-                    <app-photo  
-                        [url]="photo.url" 
-                        [description]="photo.description"
-                        apDarkenOnHover>
-                    </app-photo>
-                    <div class="text-center p-1">
-                        <i aria-hidden="true" class="fas fa-heart fa-1x mr-2"></i>{{ photo.likes }}
-                        <i aria-hidden="true" class="fas fa-comment fa-1x mr-2 ml-2"></i>{{ photo.comments }}
-                    </div>
-                </app-card>
-            </a>
+            <mat-card (click)="photoDetail(photo.id)">
+                <app-photo  
+                    [url]="photo.url" 
+                    [description]="photo.description"
+                    apDarkenOnHover>
+                </app-photo>
+                <div class="p-1">
+                    <mat-icon>thumb_up_off_alt</mat-icon>{{ photo.likes }}
+                    <mat-icon>comment</mat-icon>{{ photo.comments }}
+                </div>
+            </mat-card>
         </dvi>
     </li>
 </ol>

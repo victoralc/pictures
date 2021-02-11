@@ -1,4 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { Photo } from '../../photo/photo';
 
 @Component({
@@ -11,7 +13,7 @@ export class PhotosComponent implements OnChanges {
   @Input() photos: Photo[] = [];
   rows: any[] = [];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.photos) {
@@ -26,6 +28,10 @@ export class PhotosComponent implements OnChanges {
         newRows.push(photos.slice(index, index + 3));
     }
     return newRows; 
+  }
+
+  photoDetail(photoId: string){
+    this.router.navigate(['/photos', photoId]);
   }
 
 }

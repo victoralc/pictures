@@ -1,26 +1,27 @@
-<div class="bg-white border" *ngIf="(photo$ | async) as photo">
+<div class="container mt-3" *ngIf="(photo$ | async) as photo">
+  <mat-card>
     <div class="row">
-      <div class="col-lg-8">
+      <div class="col-5">
         <app-photo [url]="photo?.url" [description]="photo?.description"></app-photo>
-
       </div>
-  
-      <div class="col-lg-4 p-4">
-        <small>
-            <p class="text-left break-word">{{ photo.description }}</p>
-            <div class="d-flex justify-content-between mb-4" style="font-size: 24px;">
-              <div>
-                <fa-icon (click)="like(photo)" showIfLogged [icon]="faHeart"> </fa-icon> {{ photo.likes }}
-                <fa-icon [icon]="faComment"></fa-icon> {{ photo.comments }}
-              </div>
-              <fa-icon photoOwnerOnly [photo]="photo" [icon]="faTrash" (click)="removePhoto()" ></fa-icon>
-            </div>
-            <hr>
-        </small>
+      <div class="col-7">
+        <h2 class="text-left break-word">{{ photo.description }}</h2>
+        <div class="d-flex justify-content-between mb-4" style="font-size: 24px;">
+          <fa-icon photoOwnerOnly [photo]="photo" [icon]="faTrash" (click)="removePhoto()" ></fa-icon>
+        </div>
+        <p class="text-left break-word">
+          {{ photo.description }}
+        </p>
+        <div class="d-flex" style="font-size: 16px;">
+          <mat-icon class="mr-3">thumb_up_off_alt</mat-icon>{{ photo.likes }}
+          <mat-icon class="mr-2">comment</mat-icon> {{ photo.comments }}
+        </div>
+        <hr>
         <app-photo-comments *ngIf="photo.allowComments; else warning" [photoId]="photo.id"></app-photo-comments>
         <ng-template #warning>
           <p>User has disabled comments for this photo</p>
-        </ng-template>
+        </ng-template>  
       </div>
     </div>
-  </div>
+  </mat-card>
+</div>

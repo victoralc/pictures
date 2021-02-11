@@ -9,7 +9,8 @@ import { userNamePassword } from './username-password.validator';
 
 @Component({
     selector: 'app-signup',
-    templateUrl: './sign.up.component.html'
+    templateUrl: './sign.up.component.html',
+    styleUrls: ['./signup.component.scss']
 })
 export class SignUpComponent implements OnInit{
 

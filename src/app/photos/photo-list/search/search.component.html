@@ -1,12 +1,13 @@
 <div class="text-center mt-3 mb-3">
     <form>
-        <i class="fas fa-search"></i>
-        <input
-            class="rounded"
-            type="search"
-            placeholder="search..."
-            autofocus
-            (keyup)="debounce.next($event.target.value)"
-        >
+        <mat-icon>search</mat-icon>
+        <mat-form-field appearance="outline">
+            <input
+                matInput
+                type="search"
+                placeholder="search..."
+                autofocus
+                (keyup)="debounce.next($event.target.value)">
+        </mat-form-field>
     </form>
 </div>
