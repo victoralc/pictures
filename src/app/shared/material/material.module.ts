@@ -5,25 +5,25 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatBadgeModule} from '@angular/material/badge';
 
+const materialModules = [
+    MatIconModule, 
+    MatButtonModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatMenuModule,
+    MatBadgeModule
+];
 
 @NgModule({
-    imports: [
-        MatIconModule, 
-        MatButtonModule,
-        MatToolbarModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatInputModule
-    ], 
-    exports: [
-        MatIconModule, 
-        MatButtonModule,
-        MatToolbarModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatInputModule
-    ]
+    imports: materialModules, 
+    exports: materialModules
 })
 export class MaterialModule {
 

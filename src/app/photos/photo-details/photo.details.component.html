@@ -12,12 +12,22 @@
         <p class="text-left break-word">
           {{ photo.description }}
         </p>
-        <div class="d-flex" style="font-size: 16px;">
-          <mat-icon class="mr-3">thumb_up_off_alt</mat-icon>{{ photo.likes }}
-          <mat-icon class="mr-2">comment</mat-icon> {{ photo.comments }}
+        <div class="d-flex flex-row" style="font-size: 16px;">
+          <div class="p-1">
+            <button mat-icon-button color="basic">
+              <mat-icon>favorite</mat-icon>
+            </button>
+          </div>
+          <div class="p-1">
+            <button mat-icon-button color="basic" >
+              <mat-icon >comment</mat-icon>
+            </button>
+          </div>
         </div>
-        <hr>
-        <app-photo-comments *ngIf="photo.allowComments; else warning" [photoId]="photo.id"></app-photo-comments>
+        <p class="mt-4 mb-1"><strong>{{ photo.likes }} likes</strong></p>
+        <div class="mt-3">
+          <app-photo-comments *ngIf="photo.allowComments; else warning" [photoId]="photo.id"></app-photo-comments>
+        </div>
         <ng-template #warning>
           <p>User has disabled comments for this photo</p>
         </ng-template>  

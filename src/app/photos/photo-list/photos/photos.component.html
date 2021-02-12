@@ -11,8 +11,14 @@
                     apDarkenOnHover>
                 </app-photo>
                 <div class="p-1">
-                    <mat-icon>thumb_up_off_alt</mat-icon>{{ photo.likes }}
-                    <mat-icon>comment</mat-icon>{{ photo.comments }}
+                    <button mat-icon-button color="warn">
+                        <mat-icon>favorite</mat-icon>
+                        {{ photo.likes }}
+                      </button>
+                      <button mat-icon-button >
+                        <mat-icon>comment</mat-icon>
+                        {{ photo.comments }}
+                      </button>
                 </div>
             </mat-card>
         </dvi>

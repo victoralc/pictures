@@ -6,9 +6,18 @@
     <span class="example-spacer"></span>
 
     <div *ngIf="(user$ | async) as user; else login">
-        <mat-icon>face</mat-icon>
-        <a> {{ user.name }} </a>
-        <a (click)="logout()"> Logout </a>
+        <button mat-icon-button>
+            <mat-icon matBadge="15" matBadgeColor="warn">favorite</mat-icon>
+        </button>
+        <button mat-icon-button >
+            <mat-icon matBadge="15" matBadgeColor="warn">comments</mat-icon>
+        </button>
+        <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Profile</button>
+            <button mat-menu-item>Settings</button>
+            <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
     </div>
 
     <ng-template #login>

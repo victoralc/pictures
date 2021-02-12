@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ValidationMessageModule } from 'src/app/shared/components/validation-messages/validation.message.module';
 import { ImmediateClickModule } from 'src/app/shared/directives/immediate-click/immediate.click.module';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 import { PhotoComponent } from '../photo/photo.component';
 import { PhotoModule } from '../photo/photo.module';
 import { PhotoFormComponent } from './photo-form.component';
@@ -17,7 +18,8 @@ import { PhotoFormComponent } from './photo-form.component';
         FormsModule,
         ValidationMessageModule,
         RouterModule,
-        ImmediateClickModule
+        ImmediateClickModule,
+        MaterialModule
     ]
 })
 export class PhotoFormModule {}
