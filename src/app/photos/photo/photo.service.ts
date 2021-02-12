@@ -64,4 +64,8 @@ export class PhotoService {
          }));
    }
 
+   isLikedBy(photoId: number, userId: number) {
+      return this.http.get<boolean>(API + '/photos/' + photoId + '/liked-by/user/' + userId);
+  }
+
 }
