@@ -22,7 +22,7 @@ import { MaterialModule } from './shared/material/material.module';
     AppRoutingModule,
     PhotosModule,
     ErrorsModule,
-    CoreModule,
+    CoreModule, 
     BrowserAnimationsModule,
   ],
   providers: [],

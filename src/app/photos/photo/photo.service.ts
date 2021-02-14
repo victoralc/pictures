@@ -5,6 +5,8 @@ import { catchError, map } from 'rxjs/operators';
 import { Photo } from './photo';
 import { PhotoComment } from './photo.comment';
 import { environment } from '../../../environments/environment';
+import { PhotoLikedByUser } from './photo-liked-by-user';
+import { PhotoLiked } from './photo-liked';
 
 const API = environment.API_URL;
 
@@ -64,8 +66,8 @@ export class PhotoService {
          }));
    }
 
-   isLikedBy(photoId: number, userId: number) {
-      return this.http.get<boolean>(API + '/photos/' + photoId + '/liked-by/user/' + userId);
+   photoLikedByUser(photoId: number, userId: number): Observable<PhotoLiked>{
+      return this.http.get<PhotoLiked>(API + '/photos/' + photoId + '/liked-by/user/' + userId);
   }
 
 }

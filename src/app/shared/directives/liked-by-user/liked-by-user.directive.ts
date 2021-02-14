@@ -1,12 +1,14 @@
-import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { map, switchMap } from 'rxjs/operators';
+import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { UserService } from 'src/app/core/user/user.service';
 import { PhotoService } from 'src/app/photos/photo/photo.service';
 
 @Directive({
     selector: '[likedByCurrentUser]'
 })
-export class LikedByUser implements OnInit {
+export class PhotoLikedByUserDirective implements OnInit {
+
+    @Input() photoId: number;
 
     constructor(
         private element: ElementRef<any>, 
@@ -16,11 +18,12 @@ export class LikedByUser implements OnInit {
     ) {}
 
     ngOnInit(){
+        console.log("Buscando photo curtida ngOnInit");
         this.userService.getUser()
-            .pipe(switchMap(user => this.photoService.isLikedBy(photoId, user.id)))
-            .subscribe(isLikedByUser => {
-                isLikedByUser 
-                    && this.renderer.setStyle(this.element.nativeElement, 'display', 'none');
+            .pipe(switchMap((user) => this.photoService.photoLikedByUser(this.photoId, user.id)))
+            .subscribe(photoByUser => {
+                console.log("Buscando photo curtida no subscribe");
+                console.log(photoByUser.isPhotoLiked);
             });
     }
 

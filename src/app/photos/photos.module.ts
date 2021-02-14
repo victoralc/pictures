@@ -19,6 +19,7 @@ import { PhotoModule } from './photo/photo.module';
 import { PhotoDetailsModule } from './photo-details/photo.details.module';
 import { PhotoListModule } from './photo-list/photo.list.module';
 import { MaterialModule } from '../shared/material/material.module';
+import { LikeButtonModule } from '../shared/components/like-button/like-button.module';
 
 @NgModule({
     imports: [
