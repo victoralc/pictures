@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '../../material/material.module';
-import { LikeButtonComponent } from './like-button.component';
+import { BackButtonComponent } from './back-button.component';
 
 @NgModule({
-    declarations: [LikeButtonComponent],
+    declarations: [BackButtonComponent],
     imports: [CommonModule, MaterialModule],
-    exports: [LikeButtonComponent]
+    exports: [BackButtonComponent]
 })
-export class LikeButtonModule {
+export class BackButtonModule {
 
 }

@@ -9,6 +9,7 @@ import { RequestInterceptor } from './auth/request.interceptor';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MaterialModule } from '../shared/material/material.module';
+import { BackButtonModule } from '../shared/components/back-button/back-button.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { MaterialModule } from '../shared/material/material.module';
         AlertModule, 
         LoadingModule, 
         MenuModule,
-        MaterialModule
+        MaterialModule,
+        BackButtonModule
     ],
     providers: [
         {

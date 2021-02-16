@@ -11,6 +11,7 @@ import { PhotoService } from 'src/app/photos/photo/photo.service';
 })
 export class LikeButtonComponent implements OnInit{
 
+    @Input() photo: Photo;
     cssClass: string;
 
     constructor(
@@ -19,10 +20,27 @@ export class LikeButtonComponent implements OnInit{
     ){}
 
     ngOnInit() {
+        this.userService.getUser()
+            .pipe(switchMap((user) => this.photoService.photoLikedByUser(this.photo.id, user.id)))
+            .subscribe(photoByUser => {
+                if (photoByUser.isPhotoLiked) {
+                    this.activateCssLike();
+                }
+            });
     }
 
     like(){
-        
+        this.photoService
+            .like(this.photo.id)
+            .subscribe(liked => {
+                if (liked) {
+                    this.activateCssLike()    
+                }    
+            });
+    }
+
+    activateCssLike(){
+        this.cssClass = "mat-warn";
     }
 
 }

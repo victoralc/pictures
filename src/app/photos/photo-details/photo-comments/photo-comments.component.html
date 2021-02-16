@@ -14,13 +14,15 @@
     </ul>
     <div>
         <form [formGroup]="commentForm" (submit)="addComment()">
-            <mat-form-field appearance="outline" class="input-field-full-width">
-                <textarea matInput formControlName="comment" placeholder="Add comment"></textarea>
-            </mat-form-field>
-            <div class="input-group-append">
-                <button mat-raised-button color="primary" type="submit" 
+            <div class="d-flex">
+                <mat-form-field appearance="outline" class="input-field-full-width-text-area">
+                    <textarea matInput formControlName="comment" placeholder="Add comment"></textarea>
+                </mat-form-field>
+                <button mat-icon-button color="primary" type="submit" 
                     [disabled]="commentForm.invalid" 
-                    class="pull-right">Add Comment</button>
+                    class="pull-right ">
+                    <mat-icon>send</mat-icon>
+                </button>
             </div>
             <app-vmessage 
                 text="Maximun size allowed is 300" 

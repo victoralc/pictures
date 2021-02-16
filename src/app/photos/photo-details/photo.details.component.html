@@ -1,3 +1,4 @@
+<app-back-button></app-back-button>
 <div class="container mt-3" *ngIf="(photo$ | async) as photo">
   <mat-card>
     <div class="row">
@@ -14,7 +15,7 @@
         </p>
         <div class="d-flex flex-row" style="font-size: 16px;">
           <div class="p-1">
-            <app-like-button></app-like-button>
+            <app-like-button [photo]="photo"></app-like-button>
           </div>
           <div class="p-1">
             <button mat-icon-button color="basic" >

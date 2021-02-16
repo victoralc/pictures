@@ -1,26 +1,22 @@
 <p class="text-center text-muted" *ngIf="!photos.length">
     Sorry, no photos
 </p>
-<ol class="list-unstyled">
-    <li *ngFor="let cols of rows" class="row no-gutters">
-        <dvi *ngFor="let photo of cols" class="col-4">
-            <mat-card (click)="photoDetail(photo.id)">
-                <app-photo  
-                    [url]="photo.url" 
-                    [description]="photo.description"
-                    apDarkenOnHover>
-                </app-photo>
-                <div class="p-1">
-                    <button mat-icon-button color="warn">
-                        <mat-icon>favorite</mat-icon>
-                        {{ photo.likes }}
-                      </button>
-                      <button mat-icon-button >
-                        <mat-icon>comment</mat-icon>
-                        {{ photo.comments }}
-                      </button>
-                </div>
-            </mat-card>
-        </dvi>
-    </li>
-</ol>
+<div class="container col-12">
+    <mat-card *ngFor="let photo of photos" (click)="photoDetail(photo.id)" class="mt-3 col-4">
+        <app-photo  
+            [url]="photo.url" 
+            [description]="photo.description"
+            apDarkenOnHover>
+        </app-photo>
+        <div class="p-1">
+            <button mat-icon-button color="warn">
+                <mat-icon>favorite</mat-icon>
+                {{ photo.likes }}
+              </button>
+              <button mat-icon-button >
+                <mat-icon>comment</mat-icon>
+                {{ photo.comments }}
+              </button>
+        </div>
+    </mat-card>
+</div>
